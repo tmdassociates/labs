@@ -1,0 +1,16 @@
+registry:
+  restart: always
+  image: registry:2
+  ports:
+    - bld.lab:5000:5000
+  environment:
+    REGISTRY_HTTP_TLS_CERTIFICATE: /certs/bld.lab.crt
+    REGISTRY_HTTP_TLS_KEY: /certs/bld.lab.key
+    REGISTRY_AUTH: htpasswd
+    REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+    REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+  hostname: bld.lab
+  volumes:
+    - ./data:/var/lib/registry
+    - ./certs:/certs
+    - ./auth:/auth

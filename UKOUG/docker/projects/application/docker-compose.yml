@@ -1,0 +1,5 @@
+webapp:
+  restart: always
+  image: bld.lab:5000/webapp:1
+  ports:
+    - bld.lab:8001:8001

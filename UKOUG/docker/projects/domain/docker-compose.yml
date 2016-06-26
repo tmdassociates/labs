@@ -1,0 +1,5 @@
+domain:
+  restart: always
+  image: bld.lab:5000/domain:1
+  ports:
+    - bld.lab:8001:8001
